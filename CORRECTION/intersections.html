@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Intersections</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+
+
+</head>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/three.js"></script>
+<script src="js/LoaderSupport.js"></script>
+<script src="js/OBJLoader.js"></script>
+<script src="js/OBJLoader2.js"></script>
+<script src="js/DragControls.js"></script>
+<script src="js/TrackballControls.js"></script>
+
+<script src="js/intersections.js"></script>
+<script>
+    // Bouton de retour à l'écran d'acceuil
+    $(document).ready(function () {
+        $('#button_retour').click(function () {
+            window.location.replace("index.html");
+        })
+    });
+</script>
+<body>
+<div><button id='button_retour'type='button'> Retour </button></div>
+</body>
+</html>

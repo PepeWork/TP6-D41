@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop</title>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Pour que draggble/Droppable fonctionne sur mobile-->
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/drag_drop.css">
+</head>
+
+<!-- 1 -> Rendre draggble-->
+<!-- 2 -> Revert a true -->
+<!-- 3 -> Droppable avec alert -->
+<!-- 4 -> draw image avec le scale-->
+<!-- 5 -> draw image seulement au bon emplacement -->
+<!-- https://jqueryui.com/droppable/#revert -->
+
+<script>
+
+    var c,ctx, img;
+
+    var score=0;
+
+    function draw_img(canv, image) {
+        c = document.getElementById(canv);
+        ctx = c.getContext("2d");
+        img = document.getElementById(image);
+//        ctx.scale(320/1280,320/1280);
+        ctx.drawImage(img,0,0,160,160);
+        score = score + 1;
+        if (score>=6){
+            $('body').append("<button id=\"nextButton\"> Suivant</button>");
+        }
+    }
+
+    function write_canv(canv, txt){
+        c = document.getElementById(canv);
+        ctx = c.getContext("2d");
+        ctx.textAlign="center";
+        ctx.fillText(txt,80,80);
+    }
+    
+    $(document).ready(function () {
+
+//        Ecriture des noms dans les canvas
+        write_canv("canv1","Mystherbe");
+        write_canv("canv2","Pikachu");
+        write_canv("canv3","Ramoloss");
+        write_canv("canv4","Smogo");
+        write_canv("canv5","Ortide");
+        write_canv("canv6","Dracaufeu");
+
+
+//        Valid revient à sa position si deposer sur un droppable
+        $("#img1").draggable({revert:true});
+        $("#img2").draggable({revert:true});
+        $("#img3").draggable({revert:true});
+        $("#img4").draggable({revert:true});
+        $("#img5").draggable({revert:true});
+        $("#img6").draggable({revert:true});
+
+        $("#canv1").droppable( {drop: function( event, ui ) {
+            if ($(ui.draggable).attr('id') == $("#img1").attr('id'))
+            {
+                draw_img("canv1", "img1")
+            }
+        }
+    });
+        $("#canv2").droppable({drop: function( event, ui ) {
+            if ($(ui.draggable).attr('id') == $("#img3").attr('id'))
+            {
+                draw_img("canv2", "img3")
+            }
+        }
+        });
+        $("#canv3").droppable({drop: function( event, ui ) {
+            if ($(ui.draggable).attr('id') == $("#img4").attr('id'))
+            {
+                draw_img("canv3", "img4")
+            }
+        }
+        });
+        $("#canv4").droppable({drop: function( event, ui ) {
+            if ($(ui.draggable).attr('id') == $("#img5").attr('id'))
+            {
+                draw_img("canv4", "img5")
+            }
+        }
+        });
+        $("#canv5").droppable({drop: function( event, ui ) {
+            if ($(ui.draggable).attr('id') == $("#img2").attr('id'))
+            {
+                draw_img("canv5", "img2")
+            }
+        }
+        });
+        $("#canv6").droppable({drop: function( event, ui ) {
+            if ($(ui.draggable).attr('id') == $("#img6").attr('id'))
+            {
+                draw_img("canv6", "img6")
+            }
+        }
+        });
+    })
+</script>
+<!-- Rendre draggble chaque image-->
+<body>
+    <img id="img1" src="resources/img/img1.jpg" width="160">
+    <img id="img2" src="resources/img/img2.jpg" width="160">
+    <img id="img3" src="resources/img/img3.jpg" width="160">
+    <img id="img4" src="resources/img/img4.jpg" width="160">
+    <img id="img5" src="resources/img/img5.jpg" width="160">
+    <img id="img6" src="resources/img/img6.jpg" width="160">
+
+
+    <!-- Fonction scale de canvas pour avoir les images à la bonne dimension-->
+    <div id="zoneCanvas">
+        <canvas id="canv1" height="160" width="160"></canvas>
+        <canvas id="canv2" height="160" width="160"></canvas>
+        <canvas id="canv3" height="160" width="160"></canvas>
+        <canvas id="canv4" height="160" width="160"></canvas>
+        <canvas id="canv5" height="160" width="160"></canvas>
+        <canvas id="canv6" height="160" width="160"></canvas>
+    </div>
+
+</body>
+</html>

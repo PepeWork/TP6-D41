@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Différents exemples de webGL</title>
+</head>
+
+<script>
+    $(document).ready(function () {
+        $('#button_cube_texture').click(function () {
+            window.location.replace("cube_texture.html");
+        });
+
+        $('#button_sphere_texture').click(function () {
+            window.location.replace("sphere_texture.html");
+        });
+
+        $('#button_cube_draggable').click(function () {
+            window.location.replace("cube_draggable.html");
+        });
+		
+		$('#button_intersections').click(function () {
+            window.location.replace("intersections.html");
+        });
+
+        $('#button_importation').click(function () {
+            window.location.replace("importation.html");
+        });
+    })
+</script>
+<body>
+    <br/>
+    <div>
+        <button id='button_cube_texture'type="button"> Cube avec une texture</button>
+    </div>
+    <br/>
+    <div>
+    <button id='button_sphere_texture'type="button"> Sphere avec une texture</button>
+    </div>
+    <br/>
+    <div>
+        <button id='button_cube_draggable'type="button"> Cubes draggables</button>
+    </div>
+    <br/>
+    <div>
+        <button id='button_intersections'type="button">Intersections</button>
+    </div>
+    <br/>
+    <div>
+        <button id='button_importation'type="button">Importation</button>
+    </div>
+    <br/>
+</body>
+</html>

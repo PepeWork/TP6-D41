@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sphere avec texture</title>
+    <style>
+        body { margin: 0; }
+        canvas { width: 100%; height: 100% }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/three.js"></script>
+<script src="js/sphere_texture.js"></script>
+<script>
+    // Bouton de retour à l'écran d'acceuil
+    $(document).ready(function () {
+        $('#button_retour').click(function () {
+            window.location.replace("index.html");
+        })
+    });
+</script>
+<body>
+<div><button id='button_retour'type='button'> Retour </button></div>
+</body>
+</html>

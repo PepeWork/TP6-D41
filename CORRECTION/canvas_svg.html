@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas/SVG</title>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/drag_drop.css">
+</head>
+
+
+<script>
+
+    var c,ctx;
+    var sPath ;
+
+    function action_canv(canv){
+        c = document.getElementById(canv);
+        ctx = c.getContext("2d");
+
+        //cercle
+        ctx.beginPath();
+        ctx.arc(95,50,40,0,2*Math.PI);
+        ctx.stroke();
+
+        //carré
+        ctx.moveTo(200,200);
+        ctx.lineTo(260,200);
+        ctx.lineTo(260,260);
+        ctx.lineTo(200,260);
+        ctx.lineTo(200,200);
+        ctx.stroke();
+    }
+    
+    $(document).ready(function () {
+
+//        Ecriture des noms dans les canvas
+        action_canv("canv");
+
+        // Partie Path
+        $("canvas").mousedown(function (event) {
+            sPath = "M"+event.pageX +" "+event.pageY+ " ";
+
+            $("canvas").mousemove(function (eventB) {
+                sPath += "L"+eventB.pageX +" "+eventB.pageY+ " ";
+            });
+        });
+
+        $("canvas").mouseup(function (eventC) {
+            $("canvas").off("mousemove");
+
+            var sSortie = "<svg height=\"300px\" width=\"300px\">  <path d=\""+sPath+"\" fill=\"green\" /> </svg> " ;
+
+            $("#recept").html(sSortie);
+        })
+
+    })
+</script>
+
+<body>
+
+    <div id="zoneDessin">
+        <canvas id="canv" height="300px" width="300px"></canvas>
+
+        <svg id="svg" height="300px" width="200px">
+            <rect id="myRect" height="100px" width="100px" fill="blue"/>
+            <circle cx="60" cy="220" r="40" stroke="black" stroke-width="3" fill="red" />
+        </svg>
+
+        <div id="recept"></div>
+
+    </div>
+
+
+</body>
+</html>
