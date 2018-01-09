@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas/SVG</title>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/drag_drop.css">
+</head>
+
+
+<script>
+
+    var canvas,ctx;
+    var sPath ;
+
+    function action_canv(){
+        //récupération du contexte sur le canvas
+
+        //cercle
+
+        //carré
+
+    }
+    
+    $(document).ready(function () {
+
+//        Ecriture des noms dans les canvas
+        action_canv();
+
+
+        // Partie Path
+        $("canvas").mousedown(function (event) {
+            sPath = "" ;
+
+            $("canvas").mousemove(function (eventB) {
+                sPath += "";
+            });
+        });
+
+        $("canvas").mouseup(function (eventC) {
+            $("canvas").off("mousemove");
+
+            var sSortie = "<svg height=\"300px\" width=\"300px\">  <path d=\""+sPath+"\" fill=\"green\" /> </svg> " ;
+
+            $("#recept").html(sSortie);
+        })
+
+    })
+</script>
+
+<body>
+
+    <div id="zoneDessin">
+        <!--ajout du canvas, height="300px" width="300px" -->
+
+        <!--ajout du svg height="300px" width="300px"-->
+        <!--Dans le svg, ajout d'un carré et d'un cercle-->
+
+
+        <!--Partie path-->
+        <div id="recept"></div>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Cube avec texture</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            margin: 0px;
+            overflow: hidden; }
+    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <!--LE truc nécessaire-->
+    <script src="js/three.js"></script>
+    <script src="js/cube_texture.js"></script>
+    <script>
+        // Bouton de retour à l'écran d'acceuil
+        $(document).ready(function () {
+            $('#button_retour').click(function () {
+                window.location.replace("index.html");
+            })
+        });
+    </script>
+</head>
+<body>
+<div><button id='button_retour'type='button'> Retour </button></div>
+</body>
+</html>

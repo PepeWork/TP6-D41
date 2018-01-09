@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop</title>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- Pour que draggble/Droppable fonctionne sur mobile-->
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/drag_drop.css">
+</head>
+
+
+<script>
+
+    var c,ctx, img;
+
+    var score=0;
+
+    function draw_img(canv, image) {
+        c = document.getElementById(canv);
+        ctx = c.getContext("2d");
+        img = document.getElementById(image);
+
+        //dessiner l'image pour qu'elle rentre dans le cadre, 2 manières de faire
+
+
+        score = score + 1;
+        if (score>=6){
+            $('body').append("<p>Il ne reste plus qu'à commencer le WebGL!</p>");
+        }
+    }
+
+    function write_canv(canv, txt){
+        c = document.getElementById(canv);
+        ctx = c.getContext("2d");
+        ctx.textAlign="center";
+        ctx.fillText(txt,80,80);
+    }
+    
+    $(document).ready(function () {
+
+        // Ecriture des noms dans les canvas
+        write_canv("canv1","Mystherbe");
+        write_canv("canv2","Ortide");
+        write_canv("canv3","Pikachu");
+        write_canv("canv4","Ramoloss");
+        write_canv("canv5","Smogo");
+        write_canv("canv6","Dracaufeu");
+
+        //étape 1
+        //ici transformer les éléments img de ce html en draggable
+
+
+
+
+
+
+
+        //étape 2
+        // rendre les canvas droppable
+
+        //puis implémentez l'event drop de droppable (voir doc) pour accéder à l'élément draggable qui arrive sur ce canvas
+        // l'image devra être dessinée si les attributs correspondent: $(ui.draggable).attr('id') == $("#img???").attr('id')
+        // sachant que le numéro de l'id img correspond à celui du canvas   ex: canvas3 doit dessiner img3
+
+        //dessinez alors la bonne image sur le canvas avec la fonction draw_img à compléter
+
+
+    }); // fin doc ready
+</script>
+
+<body>
+
+    <img id="img4" src="resources/img/img4.jpg" width="160">
+    <img id="img1" src="resources/img/img1.jpg" width="160">
+    <img id="img6" src="resources/img/img6.jpg" width="160">
+    <img id="img3" src="resources/img/img3.jpg" width="160">
+    <img id="img2" src="resources/img/img2.jpg" width="160">
+    <img id="img5" src="resources/img/img5.jpg" width="160">
+
+
+
+    <!-- Fonction scale de canvas pour avoir les images à la bonne dimension-->
+    <div id="zoneCanvas">
+        <canvas id="canv1" height="160" width="160"></canvas>
+        <canvas id="canv2" height="160" width="160"></canvas>
+        <canvas id="canv3" height="160" width="160"></canvas>
+        <canvas id="canv4" height="160" width="160"></canvas>
+        <canvas id="canv5" height="160" width="160"></canvas>
+        <canvas id="canv6" height="160" width="160"></canvas>
+    </div>
+
+</body>
+</html>
