@@ -1,0 +1,98 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+
+% Title Page
+\title{TP Drag and drop}
+\author{}
+
+\begin{document}
+\maketitle
+
+\chapter{Canvas / SVG}{}
+Canvas: 
+\url{https://www.w3schools.com/html/html5_canvas.asp}\\
+SVG:
+\url{https://www.w3schools.com/graphics/svg_intro.asp}
+
+\paragraph{Cercles et carrés}
+\subparagraph{Canvas}
+Ajoutez un canvas au document canvas\_svg.html à l'emplacement indiqué dans le code.
+
+Créez une fonction qui va vous permettre de travailler sur le canvas et dessinez-y un cercle en x90 y50 et avec 40 de rayon.
+
+Faites un carré, pour cela vous utiliserez sur le contexte les méthodes moveTo et lineTo, suivez l'exemple draw a line dans le lien donné plus haut.
+
+\subparagraph{SVG}
+Travaillez uniquement dans le code html pour cette partie, pas besoin de javascript.
+
+Créez un élément svg dans le code html à l'emplacement indiqué dans le code.
+
+Ajoutez-y un cercle puis un carré. Le point d'origine 0,0 est en haut à gauche de l'élément svg.\\
+
+
+Maintenant faites un zoom sur votre page, ctrl + '+' ou molette de la souris et observez la différence entre vos éléments créés sur un canvas et ceux en svg.
+
+\paragraph{Path}
+
+\url{https://www.w3schools.com/graphics/svg_path.asp}\\
+Rappelez-vous de la manière utilisée pour dessiner un carré sur le canvas, vous avez indiqué les coordonnées du point de départ puis les points par lesquels passer.
+
+Un path est un chemin et suis le même principe, on le donne sous forme d'une chaine de caractères.
+Les coordonnées sont sous forme de nombres entiers séparés par un espace, comme on est en 2D vous donnerez toujours les nombres par 2.
+
+En ajoutant une lettre avant une coordonnée vous indiquez que faire. M pour déplacer le pointeur, L pour tirer un trait entre l'emplacement actuel du pointeur et l'emplacement donné (tout en déplaçant le pointeur), etc.
+
+Ici nous avons déjà effectué une partie du travail pour vous faire gagner du temps
+Vous allez changer la valeur de la variable sPath (string) pour obtenir une chaine compatible avec celle prise en paramètre par path.
+
+Dans le code déjà écrit, mousedown et mouseup sont utilisés pour ajouter ou enlever un écouteur sur l'évènement mousemove. Ainsi tant que le bouton de la souris est enfoncé au dessus du canvas on peut récupérer les coordonnées du curseur pendant le déplacement de la souris.
+
+En bref vous pourrez dessiner.\\
+
+Voir pageX et pageY pour récupérer les coordonnées de la souris\\
+\url{https://api.jquery.com/category/events/}
+
+
+
+
+
+
+\chapter{Drag and drop / Canvas}
+Le but de ce TP est d'obtenir un mini-jeux. L'objectif sera de glisser une image de pokemon dans le canvas qui lui est dédié.
+Après un mouvement, une image devra retourner à sa place d'origine.
+
+Si le joueur place l'image au bon endroit, alors elle s'affichera dans le canvas.
+Afin de gagner du temps, le squelette du code vous est fourni.
+
+\subparagraph{1. Les images}
+Nous allons commencer par rendre draggable nos images.
+
+Ensuite nous ajouterons un paramètre permettant le retour à la position d'origine de l'image après un mouvement.\\
+\url{https://jqueryui.com/draggable/#default}
+
+\subparagraph{2. Les canvas}
+Nos images ont maintenant la physique désirée. 
+Occupons-nous du comportement des canvas.
+
+Il faut faire en sorte que les canvas s'attendent à recevoir une image.
+On va donc les rendre 'droppable'.
+La documentation suivante devrait nous aider!\\
+\url{https://jqueryui.com/droppable/#revert}
+
+L'évènement drop de droppable nous permettra de spécifier le comportement des canvas en associant une image différente pour chacun.
+
+Si la bonne image est 'droppée' lorsque le curseur de la souris est au dessus du canvas alors on la dessinera sur ce dernier. 
+Attention à l'échelle de l'image.
+\begin{itemize}
+\item
+Images et canvas: 
+\url{https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_tut_img}
+\end{itemize}
+
+
+Félicitations, vous pouvez continuer vers le monde merveilleux de la 3D!
+
+
+\end{document}          
